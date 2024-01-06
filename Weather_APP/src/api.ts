@@ -7,7 +7,7 @@ export const getApiData = async (city: string) => {
   if (!response.ok) {
     throw new Error('SOMETHING IS WRONG WITH THE DATA');
   }
-  const data = await response.json();
+  const data:CurrentWeather = await response.json();
   console.log(data);
   return data;
 };
