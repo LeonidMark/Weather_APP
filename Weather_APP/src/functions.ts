@@ -37,7 +37,12 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
 
 `
 const iconForecastEl=document.querySelector<HTMLElement>("#iconForecast")
+rainyWeather(weather,iconForecastEl!)
+hotWeather(weather,iconForecastEl!)
 cloudyWeather(weather,iconForecastEl!)
+snowWeather(weather,iconForecastEl!)
+
+
 
     //const weatherData= await getApiData(cityInput)
 
@@ -47,9 +52,9 @@ export const getWeatherArray=(data:CurrentWeather["weather"])=>{
     const mainWeather=data.find(x=>x.main)
 return mainWeather;
 }
-export const cloudyWeather=(weather:CurrentWeather,element:HTMLElement)=>{
+export const rainyWeather=(weather:CurrentWeather,element:HTMLElement)=>{
     if(weather.rain){
-        element.innerHTML=`<div class="mb-2" id="iconForecast">
+        element.innerHTML=`
         <div class="breezy icons">
         <ul>
     
@@ -63,6 +68,47 @@ export const cloudyWeather=(weather:CurrentWeather,element:HTMLElement)=>{
     
     
     </div>
-            </div>`
+            `
+    }
+}
+export const hotWeather=(weather:CurrentWeather,element:HTMLElement)=>{
+    if(!weather.rain && weather.main.temp>20){
+        element.innerHTML=`
+        <div class="hot icons">
+    
+        <span class="sun"></span>
+        <span class="sunx"></span>
+    </div>
+            `
+    }
+}
+export const cloudyWeather=(weather:CurrentWeather,element:HTMLElement)=>{
+    if(!weather.rain && weather.main.temp<=20){
+        element.innerHTML=`
+        <div class="cloudy icons">
+        <span class="cloud"></span>
+        <span class="cloudx"></span>
+    </div>
+            `
+    }
+}
+export const snowWeather=(weather:CurrentWeather,element:HTMLElement)=>{
+    if(weather.snow){
+        element.innerHTML=`
+        <div class="stormy icons">
+        <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        </ul>
+        <span class="snowe"></span>
+        <span class="snowex"></span>
+    </div>
+            `
     }
 }

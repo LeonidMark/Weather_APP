@@ -28,7 +28,10 @@ export interface CurrentWeather {
 		deg: number
 		gust: number
 		speed: number
-	}
+	},
+  snow:{
+    "1h":number
+  }
 }
 
 
