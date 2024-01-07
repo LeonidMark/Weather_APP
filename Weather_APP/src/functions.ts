@@ -10,8 +10,8 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
     <h6>${weather.sys.country}</h6>
 </div>
 <div class="d-flex flex-column temp mt-5 mb-3">
-    <h1 class="mb-0 font-weight-bold" id="heading"> ${weather.main.temp} C </h1>
-    <span class="small grey">${getWeatherArray(weather.weather)}</span>
+    <h1 class="mb-0 font-weight-bold" id="heading"> ${Math.round(weather.main.temp)} C </h1>
+    <span class="small grey">${getWeatherArray(weather.weather)?.description}</span>
 </div>
 <div class="d-flex">
     <div class="temp-details flex-grow-1">
@@ -21,7 +21,7 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
          </p>
          <p class="my-1"> 
             <i class="fa fa-tint mr-2" aria-hidden="true"></i>
-            <span>${weather.main.humidity}</span> 
+            <span>${weather.main.humidity} %</span> 
          </p>
          <p class="my-1"> 
             <i class="fa fa-tint mr-2" aria-hidden="true"></i>
@@ -43,6 +43,6 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
 }
 
 export const getWeatherArray=(data:CurrentWeather["weather"])=>{
-    const mainWeather=data.filter(x=>x.main)
+    const mainWeather=data.find(x=>x.main)
 return mainWeather;
 }
