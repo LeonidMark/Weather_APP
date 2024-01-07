@@ -12,6 +12,10 @@ export interface CurrentWeather {
 		feels_like: number
 		humidity: number
 		temp: number
+    pressure: number
+    sea_level: number
+    temp_max: number
+    temp_min: number
 	}
 	name: string
 	rain?: {

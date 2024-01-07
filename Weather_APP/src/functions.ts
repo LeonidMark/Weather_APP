@@ -13,7 +13,7 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
 </div>
 <div class="d-flex flex-column temp mt-5 mb-3">
 
-    <h1 class="mb-0 font-weight-bold" id="heading"> ${Math.round(weather.main.temp)} C </h1>
+    <h1 class="mb-0 font-weight-bold" id="heading"> ${Math.round(weather.main.temp)} C &deg </h1>
     <span class="small grey">${getWeatherArray(weather.weather)?.description}</span>
 </div>
 <div class="d-flex">
@@ -30,8 +30,30 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
             <i class="fa fa-tint mr-2" aria-hidden="true"></i>
             <span>Feels Like: ${weather.main.feels_like}</span> 
          </p>
+        <div class=" flex-grow-1 moreInfo hide">
+         <p class="my-1">
+             <img src="https://i.imgur.com/B9kqOzp.png" height="17px" >
+            <span>Sea level: ${weather.main.sea_level ? weather.main.sea_level : "no information"} </span>
+         </p>
+
+         <p class="my-1">
+             <img src="https://i.imgur.com/B9kqOzp.png" height="17px" >
+            <span>Max temperature: ${weather.main.temp_max} &deg </span>
+         </p>
+         <p class="my-1">
+             <img src="https://i.imgur.com/B9kqOzp.png" height="17px" >
+            <span>Min temperature: ${weather.main.temp_min} &deg </span>
+         </p>
+         <p class="my-1">
+             <img src="https://i.imgur.com/B9kqOzp.png" height="17px" >
+            <span>The pressure is: ${weather.main.pressure}</span>
+         </p>
+         </div>
+         <button type="button" class="btn btn-outline-secondary" id="showMoreBtn">Show more info</button>
+        </div>
     </div>
 </div>
+
 
 </div>
 
