@@ -9,7 +9,10 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
     <h6 class="flex-grow-1">${weather.name}</h6>
     <h6>${weather.sys.country}</h6>
 </div>
+<div class="mb-2" id="iconForecast">
+</div>
 <div class="d-flex flex-column temp mt-5 mb-3">
+
     <h1 class="mb-0 font-weight-bold" id="heading"> ${Math.round(weather.main.temp)} C </h1>
     <span class="small grey">${getWeatherArray(weather.weather)?.description}</span>
 </div>
@@ -28,15 +31,13 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
             <span>Feels Like: ${weather.main.feels_like}</span> 
          </p>
     </div>
-    <div>
-        <img src="https://i.imgur.com/Qw7npIg.png" width="100px" id="imageWeather">
-    </div>
 </div>
 
 </div>
 
 `
-
+const iconForecastEl=document.querySelector<HTMLElement>("#iconForecast")
+cloudyWeather(weather,iconForecastEl!)
 
     //const weatherData= await getApiData(cityInput)
 
@@ -45,4 +46,23 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
 export const getWeatherArray=(data:CurrentWeather["weather"])=>{
     const mainWeather=data.find(x=>x.main)
 return mainWeather;
+}
+export const cloudyWeather=(weather:CurrentWeather,element:HTMLElement)=>{
+    if(weather.rain){
+        element.innerHTML=`<div class="mb-2" id="iconForecast">
+        <div class="breezy icons">
+        <ul>
+    
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>	
+        </ul>
+        <span class="cloudr"></span>
+    
+    
+    </div>
+            </div>`
+    }
 }
