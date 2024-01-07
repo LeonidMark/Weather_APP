@@ -1,42 +1,35 @@
-interface CurrentWeather {
-    "weather": [
-        {
-          main: string,
-          description: string;
-          icon: string
-        }
-      ],
-      base: string,
-      main: {
-        temp: number,
-        feels_like: number,
-        temp_min: number,
-        temp_max: number,
-        pressure:number ,
-        humidity:number ,
-        sea_level:number ,
-        grnd_level:number
-      },
-      visibility: number,
-      wind: {
-        speed: number,
-        deg:number,
-        gust: number
-      },
-      clouds: {
-        all: number
-      },
-      dt: number,
-      sys: {
-        type: number,
-        id: number,
-        country: string,
-        sunrise: number,
-        sunset: number
-      }
 
+ interface WeatherCondition {
+	description: string
+	icon: string
+	id: number
+	main: string
 }
 
+export interface CurrentWeather {
+	dt: number
+	main: {
+		feels_like: number
+		humidity: number
+		temp: number
+	}
+	name: string
+	rain?: {
+		"1h"?: number
+		"3h"?: number
+	}
+	sys: {
+		country: string
+		sunrise: number
+		sunset: number
+	}
+	weather: WeatherCondition[]
+	wind: {
+		deg: number
+		gust: number
+		speed: number
+	}
+}
 
 
 
