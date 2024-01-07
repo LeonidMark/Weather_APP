@@ -8,6 +8,8 @@ let cityInput:string=cityEl!.value
 const dataWeather= await getApiData(cityInput)
 renderWeather(dataWeather)
 cityEl!.value=""
+const startPageEl=document.querySelector("#startPage")
+startPageEl!.classList.add("hide")
 const showMoreBtnEl=document.querySelector<HTMLButtonElement>("#showMoreBtn")
 showMoreBtnEl!.addEventListener('click',e=>{
     const target=e.target as HTMLButtonElement

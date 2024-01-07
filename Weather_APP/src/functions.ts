@@ -13,7 +13,7 @@ weatherCastEl!.innerHTML=`<div class="card p-4">
 </div>
 <div class="d-flex flex-column temp mt-5 mb-3">
 
-    <h1 class="mb-0 font-weight-bold" id="heading"> ${Math.round(weather.main.temp)} C &deg </h1>
+    <h1 class="mb-0 font-weight-bold" id="heading"> ${Math.round(weather.main.temp)} C&deg </h1>
     <span class="small grey">${getWeatherArray(weather.weather)?.description}</span>
 </div>
 <div class="d-flex">
